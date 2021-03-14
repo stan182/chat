@@ -1,0 +1,17 @@
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+}
+
+.header {
+    font-size: 42px;
+    margin-bottom: 12px;
+}
+
+.switcher {
+    color: darkblue;
+    cursor: pointer;
+}

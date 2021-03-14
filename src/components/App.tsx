@@ -1,9 +1,10 @@
 import React from "react";
-import { Button } from "./ui/button";
+import { Login } from "./login";
+
+import { Root } from "./root";
 
 export const App: React.FC = () => (
-  <div>
-    Hello world
-    <Button />
-  </div>
+    <Root>
+        <Login />
+    </Root>
 );

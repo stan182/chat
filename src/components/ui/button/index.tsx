@@ -1,7 +1,13 @@
-import React from "react";
+import React, { ButtonHTMLAttributes } from "react";
 
 import styles from "./style.module.css";
 
-export const Button: React.FC = () => (
-  <button className={styles.button}>НАЖМИ</button>
+type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
+    label: string;
+};
+
+export const Button: React.FC<Props> = (props) => (
+    <button {...props} className={styles.button}>
+        {props.label}
+    </button>
 );

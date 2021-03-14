@@ -1,6 +1,10 @@
 .button {
-    width: 300px;
-    height: 100px;
+    min-width: 150px;
+    height: 45px;
+    margin-bottom: 12px;
     font-size: large;
-    color: blue;
+    border: 1px solid rgba(255, 255, 255, 0.288);
+    border-radius: 5px;
+    background: linear-gradient(90deg, rgba(3, 7, 255, 0.3), rgba(0, 0, 2552), rgb(3, 7, 255, 0.3));
+    color: white;
 }
