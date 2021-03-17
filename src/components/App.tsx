@@ -1,10 +1,12 @@
 import React from "react";
-import { Login } from "./login";
 
-import { Root } from "./root";
+import Root from "./root";
+import Router from "./router";
 
-export const App: React.FC = () => (
+const App: React.FC = () => (
     <Root>
-        <Login />
+        <Router />
     </Root>
 );
+
+export default App;

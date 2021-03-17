@@ -11,7 +11,13 @@
     margin-bottom: 12px;
 }
 
-.switcher {
+.form {
+    display: flex;
+    flex-direction: column;
+}
+
+.link {
     color: darkblue;
     cursor: pointer;
+    text-align: center;
 }

@@ -6,8 +6,10 @@ type Props = ButtonHTMLAttributes<HTMLButtonElement> & {
     label: string;
 };
 
-export const Button: React.FC<Props> = (props) => (
+const Button: React.FC<Props> = (props) => (
     <button {...props} className={styles.button}>
         {props.label}
     </button>
 );
+
+export default Button;
