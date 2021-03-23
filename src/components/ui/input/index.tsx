@@ -4,13 +4,10 @@ import styles from "./style.module.css";
 
 type Props = InputHTMLAttributes<HTMLInputElement>;
 
-const Input: React.FC<Props> = ({ type, placeholder, onChange }) => {
+const Input: React.FC<Props> = (props) => {
     return (
-        <input
-            className={styles.input}
-            placeholder={placeholder}
-            onChange={onChange}
-            type={type}
+        <input className={`${styles.input} ${props.className}`}
+            {...props}
         />
     );
 };

@@ -1,4 +1,5 @@
-import React, { useState } from "react";
+import React from "react";
+import { Formik } from "formik";
 import { Link } from "react-router-dom";
 
 import Input from "../../ui/input";
@@ -6,7 +7,7 @@ import Button from "../../ui/button";
 
 import styles from "../style.module.css";
 
-type State = {
+type SignUpForm = {
     email: string;
     name: string;
     password: string;
@@ -14,52 +15,58 @@ type State = {
 };
 
 const SignUp: React.FC = () => {
-    const [form, setForm] = useState<State>({
+    const initialValues: SignUpForm = {
         email: "",
         name: "",
         password: "",
         repeatPassword: "",
-    });
-    const { email, name, password, repeatPassword } = form;
-
-    const formFieldHandler = (fieldName: string) => (
-        event: React.ChangeEvent<HTMLInputElement>
-    ) => setForm({ ...form, [fieldName]: event.target.value });
+    };
 
     return (
-        <div className={styles.container}>
-            <h1 className={styles.header}>Sign up</h1>
-            <form className={styles.form}>
-                <Input
-                    type="email"
-                    value={email}
-                    placeholder={"Email"}
-                    onChange={formFieldHandler("email")}
-                />
-                <Input
-                    value={name}
-                    placeholder={"Name"}
-                    onChange={formFieldHandler("name")}
-                />
-                <Input
-                    type="password"
-                    value={password}
-                    placeholder={"Password"}
-                    onChange={formFieldHandler("password")}
-                />
-                <Input
-                    type="password"
-                    value={repeatPassword}
-                    placeholder={"Repeat password"}
-                    onChange={formFieldHandler("repeatPassword")}
-                />
-                <Button label="Submit" />
+        <Formik<SignUpForm> initialValues={initialValues} onSubmit={() => {}}>
+            {({ values, handleChange }) => {
+                const { email, name, password, repeatPassword } = values;
 
-                <Link className={styles.link} to="/signin">
-                    to Sign in
-                </Link>
-            </form>
-        </div>
+                return (
+                    <div className={styles.container}>
+                        <h1 className={styles.header}>Sign up</h1>
+                        <form className={styles.form}>
+                            <Input
+                                name="email"
+                                type="email"
+                                value={email}
+                                placeholder={"Email"}
+                                onChange={handleChange}
+                            />
+                            <Input
+                                name="name"
+                                value={name}
+                                placeholder={"Name"}
+                                onChange={handleChange}
+                            />
+                            <Input
+                                name="password"
+                                type="password"
+                                value={password}
+                                placeholder={"Password"}
+                                onChange={handleChange}
+                            />
+                            <Input
+                                name="repeatPassword"
+                                type="password"
+                                value={repeatPassword}
+                                placeholder={"Repeat password"}
+                                onChange={handleChange}
+                            />
+                            <Button label="Submit" />
+                            <Link className={styles.link} to="/signin">
+                                to Sign in
+                            </Link>
+                        </form>
+                    </div>
+                );
+            }}
+        </Formik>
     );
 };
 
