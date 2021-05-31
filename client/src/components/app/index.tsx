@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react';
 
-import Root from "./root";
-import Router from "./router";
+import Root from '../root';
+import Router from '../router';
 
 const App: React.FC = () => (
     <Root>
